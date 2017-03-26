@@ -1,0 +1,430 @@
+---
+title: "EPA3T2016"
+author: "Benito"
+date: "15 de marzo de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Descarga y lectura del fichero EPA
+
+Leemos el fichero con microdatos de la EPA del trimestre de 2017
+
+#####readr, plyr,dplyr,highr,rmarkdown,reshape2,stringi,formatR
+
+
+
+
+
+```{r datos_3t16,echo=FALSE, warning=FALSE}
+
+library(readr)
+setwd("C:/Seminario_20170328/datos_4t16")
+
+
+widths_epa<-c(3,2,2,5,1,2,2,1,1,2,2,2,1,1,2,3,1,3,2,
+  2,2,3,1,2,1,2,3,2,1,1,1,2,2,1,1,1,2,1,1,1,2,2,2,3,
+  3,2,3,1,2,4,4,4,1,4,4,2,1,1,1,2,4,1,1,2,2,1,1,1,1,
+  2,1,1,2,1,1,1,3,1,1,2,1,2,2,2,1,1,1,2,3,1,2,2,7)
+
+colnames_epa<-c('CICLO','CCAA','PROV','NVIVI',
+  'NIVEL','NPERS','EDAD5', 'RELPP1','SEXO1','NCONY',
+  'NPADRE', 'NMADRE','RELLMILI','ECIV1','PRONA1',
+  'REGNA1','NAC1', 'EXREGNA1', 'ANORE1','NFORMA',
+  'RELLB', 'EDADEST','CURSR','NCURSR', 'CURSNR', 
+  'NCURNR','HCURNR','RELLB','TRAREM', 'AYUDFA',
+  'AUSENT','RZNOTB','VINCUL','NUEVEM','OCUP1',
+  'ACT1','SITU','SP', 'DUCON1', 'DUCON2','DUCON3',
+  'TCONTM','TCONTD','DREN', 'DCOM','PROEST',
+  'REGEST','PARCO1','PARCO2','HORASP','HORASH',
+  'HORASE','EXTRA', 'EXTPAG','EXTNPG','RZDIFH',  
+  'TRAPLU', 'OCUPLU1', 'ACTPLU1','SITPLU',
+  'HORPLU','MASHOR','DISMAS','RZNDISH','HORDES',
+  'BUSOTR','BUSCA','DESEA','FOBACT','NBUSCA', 
+  'ASALA','EMBUS','ITBU','DISP','RZNDIS','EMPANT',
+  'DTANT','OCUPA','ACTA','SITUA','OFEMP','SIDI1',
+  'SIDI2','SIDI3','SIDAC1','SIDAC2','MUN1','PRORE1', 'REPAIRE1','TRAANT','AOI','CSE','FACTOREL')
+
+coltypes_epa<-list(CICLO=col_character(),
+  CCAA=col_character(),PROV=col_character(),
+  NVIVI=col_character(),NIVEL=col_character(),
+  NPERS=col_character(),EDAD5=col_number(),
+  RELPP1=col_character(),SEXO1=col_character(),
+  NCONY=col_character(),NPADRE=col_character(),
+  NMADRE=col_character(),RELLMILI=col_character(),
+  ECIV1=col_character(),PRONA1=col_character(),
+  REGNA1=col_character(),NAC1=col_character(),
+  EXREGNA1=col_character(),ANORE1=col_number(),
+  NFORMA=col_character(),RELLB=col_character(),
+  EDADEST=col_number(),CURSR=col_character(),
+  NCURSR=col_character(),CURSNR=col_character(),
+  NCURNR=col_character(),HCURNR=col_number(),
+  RELLB=col_character(),TRAREM=col_character(),
+  AYUDFA=col_character(),AUSENT=col_character(),
+  RZNOTB=col_character(),VINCUL=col_character(),
+  NUEVEM=col_character(),OCUP1=col_character(),
+  ACT1=col_character(),SITU=col_character(),
+  SP=col_character(),DUCON1=col_character(),
+  DUCON2=col_character(),DUCON3=col_character(),
+  TCONTM=col_number(),TCONTD=col_number(),
+  DREN=col_number(),DCOM=col_number(),
+  PROEST=col_character(),REGEST=col_character(),
+  PARCO1=col_character(),PARCO2=col_character(),
+  HORASP=col_number(),HORASH=col_number(),
+  HORASE=col_number(),EXTRA=col_character(),
+  EXTPAG=col_character(),EXTNPG=col_character(),
+  RZDIFH=col_character(),TRAPLU=col_character(),
+  OCUPLU1=col_character(),ACTPLU1=col_character(),
+  SITPLU=col_character(),HORPLU=col_number(),
+  MASHOR=col_character(),DISMAS=col_character(),
+  RZNDISH=col_character(),HORDES=col_number(),
+  BUSOTR=col_character(),BUSCA=col_character(),
+  DESEA=col_character(),FOBACT=col_character(),
+  NBUSCA=col_character(),ASALA=col_character(),
+  EMBUS=col_character(),ITBU=col_character(),
+  DISP=col_character(),RZNDIS=col_character(),
+  EMPANT=col_character(),DTANT=col_number(),
+  OCUPA=col_character(),ACTA=col_character(),
+  SITUA=col_character(),OFEMP=col_character(),
+  SIDI1=col_character(),SIDI2=col_character(),
+  SIDI3=col_character(),SIDAC1=col_character(),
+  SIDAC2=col_character(),MUN1=col_character(),
+  PRORE1=col_character(),REPAIRE1=col_character(),
+  TRAANT=col_character(),AOI=col_character(),
+  CSE=col_character(),FACTOREL=col_number())
+
+
+epa176<-read_fwf("EPAWEBT0416",
+       fwf_widths(widths_epa,colnames_epa),
+    col_types =cols(CICLO=col_character(),
+    CCAA=col_character(),PROV=col_character(),
+    NVIVI=col_character(),NIVEL=col_character(),
+    NPERS=col_character(),EDAD5=col_number(),
+    RELPP1=col_character(),SEXO1=col_character(),
+    NCONY=col_character(),NPADRE=col_character(),
+    NMADRE=col_character(),RELLMILI=col_character(),
+    ECIV1=col_character(),PRONA1=col_character(),
+    REGNA1=col_character(),NAC1=col_character(),
+    EXREGNA1=col_character(),ANORE1=col_number(),
+    NFORMA=col_character(),RELLB=col_character(),
+    EDADEST=col_number(),CURSR=col_character(),
+    NCURSR=col_character(),CURSNR=col_character(),
+    NCURNR=col_character(),HCURNR=col_number(),
+    RELLB=col_character(),TRAREM=col_character(),
+    AYUDFA=col_character(),AUSENT=col_character(),
+    RZNOTB=col_character(),VINCUL=col_character(),
+    NUEVEM=col_character(),OCUP1=col_character(),
+    ACT1=col_character(),SITU=col_character(),
+    SP=col_character(),DUCON1=col_character(),
+    DUCON2=col_character(),DUCON3=col_character(),
+    TCONTM=col_number(),TCONTD=col_number(),
+    DREN=col_number(),DCOM=col_number(),
+    PROEST=col_character(),REGEST=col_character(),
+    PARCO1=col_character(),PARCO2=col_character(),
+    HORASP=col_number(),HORASH=col_number(),
+    HORASE=col_number(),EXTRA=col_character(),
+    EXTPAG=col_character(),EXTNPG=col_character(),
+    RZDIFH=col_character(),TRAPLU=col_character(),
+    OCUPLU1=col_character(),ACTPLU1=col_character(),
+    SITPLU=col_character(),HORPLU=col_number(),
+    MASHOR=col_character(),DISMAS=col_character(),
+    RZNDISH=col_character(),HORDES=col_number(),
+    BUSOTR=col_character(),BUSCA=col_character(),
+    DESEA=col_character(),FOBACT=col_character(),
+    NBUSCA=col_character(),ASALA=col_character(),
+    EMBUS=col_character(),ITBU=col_character(),
+    DISP=col_character(),RZNDIS=col_character(),
+    EMPANT=col_character(),DTANT=col_number(),
+    OCUPA=col_character(),ACTA=col_character(),
+    SITUA=col_character(),OFEMP=col_character(),
+    SIDI1=col_character(),SIDI2=col_character(),
+    SIDI3=col_character(),SIDAC1=col_character(),
+    SIDAC2=col_character(),MUN1=col_character(),
+    PRORE1=col_character(),REPAIRE1=col_character(),
+    TRAANT=col_character(),AOI=col_character(),
+    CSE=col_character(),FACTOREL=col_number()))
+
+```
+
+###Dividimos por 100 la variable FACTOREL para reducirla a unidades y calculamos el total poblacional. 
+
+
+```{r}
+
+epa176$FACTOREL<-epa176$FACTOREL/100
+Poblacion<-sum(epa176$FACTOREL)
+summary(epa176$FACTOREL)
+Poblacion
+
+```
+
+
+###Filtramos el fichero por las variables que nos interesan les damos nuevos nombres:
+
+CCAA,EDAD5,SEXO1,NAC1,NFORMA,AOI,FACTOREL.
+
+```{r,warning=FALSE,message=FALSE}
+library(plyr); library(dplyr)
+epa_sel<-select(epa176,CCAA,EDAD5,SEXO1,NAC1,NFORMA,AOI,FACTOREL)
+
+#colnames(epa_sel)<-c("CICLO","CCAA","PROV","EDAD", "SEXO", "NACIONALIDAD","NFORMA","SITUACION_PROFESIONAL","AOI","FACTOREL")
+
+glimpse(epa_sel)
+
+```
+
+
+
+###Creamos una nueva variable "ACTIVIDAD" que identifica la situación respecto del empleo
+
+```{r,warning=FALSE,message=FALSE}
+epa_sel<-epa_sel%>%mutate(ACTIVIDAD=cut(as.numeric(AOI),breaks=c(0,4,6,9),labels=c("Ocupados","Parados","Inactivos")))
+
+
+```
+
+
+###Creamos una nueva variable "ESTUDIOS" que agrupa e identifica los niveles de estudio
+```{r, warning=FALSE,message=FALSE}
+
+epa_sel$NFORMA <- mapvalues(epa_sel$NFORMA, from = c('AN','P1','P2','S1','SG','SP','SU'), to = c('01','02','03','04','05','06','07'))
+
+epa_sel<-epa_sel%>%mutate(ESTUDIOS=cut(as.numeric(NFORMA),breaks=c(0,1,3,6,7),labels=c("Analfabetos","E. Primarios","E. Secundarios","E. Universitarios")))
+
+```
+
+###Creamos una nueva variable "GRUPO_EDAD" que reduce y explicita los grupos de edad
+
+
+```{r,warning=FALSE,message=FALSE}
+epa_sel<-epa_sel%>%mutate(GRUPO_EDAD=cut(as.numeric(EDAD5),breaks=c(-1,10,16,25,35,45,55,65),labels=c("Menores de 16 años","De 16 a 20 años","De 20 a 29 años","De 30 a 39 años","De 40 a 49 años","De 50 a 59 años","Mayores de 60 años")))
+
+muestra_edad<-as.data.frame(table(epa_sel$GRUPO_EDAD))
+
+library(knitr)
+kable(muestra_edad, align=c('l','r'),caption = "Distribución de la muestra por edades",format.args = list(decimal.mark = ",", big.mark = "."))
+
+```
+
+####Eliminamos variables redundantes
+```{r}
+ epa_sel<-epa_sel%>%select(-EDAD5,-NFORMA,-AOI)
+glimpse(epa_sel)
+```
+
+####Convertimos en factores las variables CCAA, SEXO1 y NAC1, y renombramos estas dos últimas
+
+
+```{r}
+colnames(epa_sel)[2:3]<-c("SEXO", "NACIONALIDAD")
+
+
+epa_sel$CCAA<-as.factor(epa_sel$CCAA)
+epa_sel$SEXO<-as.factor(epa_sel$SEXO)
+epa_sel$NACIONALIDAD<-as.factor(epa_sel$NACIONALIDAD)
+  
+glimpse(epa_sel)
+
+
+
+```
+
+
+
+
+####Agrupamos las observaciones por todas las variables de nuestro interés (CCAA, SEXO, ACTIVIDAD, ESTUDIOS,GRUPO_EDAD)y obtenemos los totales poblacionales para cada combinación posible
+
+```{r}
+tablas_EPA<-epa_sel%>%group_by(CCAA,SEXO,NACIONALIDAD,ACTIVIDAD,ESTUDIOS,GRUPO_EDAD)%>%summarise(Total=sum(FACTOREL))
+
+#Reordenamos las columnas
+tablas_EPA<-select(tablas_EPA,CCAA,SEXO,GRUPO_EDAD,ESTUDIOS,NACIONALIDAD,ACTIVIDAD,TOTAL=Total)
+
+glimpse(tablas_EPA)
+```
+
+
+
+####Sustituimos los valores de CCAA, SEXO y NACIONALIDAD por sus literales
+
+
+```{r}
+tablas_EPA$CCAA <- mapvalues(tablas_EPA$CCAA, from = c('01','02','03','04','05','06','07','08','09','10', '11','12','13','14','15','16','17','51','52'), to = c('01  Andalucía', '02  Aragón', '03  Asturias', '04  Baleares', '05  Canarias', '06  Cantabria', '07  Castilla-León', '08  Castilla-La Mancha', '09  Cataluña', '10  Comunidad Valenciana', '11  Extremadura', '12  Galicia', '13  Madrid', '14  Murcia', '15  Navarra', '16  País Vasco', '17  Rioja, La','51  Ceuta','52  Melilla '))
+
+tablas_EPA$SEXO <- mapvalues(tablas_EPA$SEXO, from = c('1','6'), to = c('Varones', 'Mujeres'))
+
+tablas_EPA$NACIONALIDAD <-mapvalues(tablas_EPA$NACIONALIDAD, from = c('1','2','3'), to = c('Española','Española y doble nacionalidad','Extranjera'))
+
+kable(head(tablas_EPA), caption = "Distribución de la población por todas las variables de interés", format.args = list(decimal.mark = ",", big.mark = "."))
+
+```
+
+
+####Ordenamos las filas de datos por los valores de las sucesivas columnas
+
+```{r}
+
+
+tablas_EPA<-arrange(tablas_EPA,CCAA,SEXO,GRUPO_EDAD,ESTUDIOS,NACIONALIDAD,ACTIVIDAD)
+
+kable(head(tablas_EPA), caption = "Distribución de la población por todas las variables de interés", format.args = list(decimal.mark = ",", big.mark = "."))
+
+```
+
+
+####Eliminamos los menores de 16 años
+
+
+
+```{r, warning=FALSE,message=FALSE}
+
+tablas_EPA<-tablas_EPA%>%filter(GRUPO_EDAD!="Menores de 16 años")
+
+kable(head(tablas_EPA), caption = "Distribución de los mayores de 16 años por todas las variables de interés", format.args = list(decimal.mark = ",", big.mark = "."))
+
+
+```
+
+
+
+```{r}
+
+library(reshape2)
+Valores<-dcast(tablas_EPA,CCAA+SEXO+GRUPO_EDAD+ESTUDIOS+NACIONALIDAD ~ ACTIVIDAD,value.var = "TOTAL")
+```
+
+
+
+
+####Calculamos valores absolutos y relativos de empleo , paro e inactividad para el Conjunto Nacional
+
+
+```{r}
+
+TotalNac_EPA<-Valores%>%summarise(
+  Total_Ocupados=round(sum(Ocupados,na.rm = TRUE),1),
+  Total_Parados=round(sum(Parados,na.rm = TRUE),1),
+  Total_Activos=Total_Ocupados+Total_Parados,
+  Tasa_desempleo=round(100*(Total_Parados/Total_Activos),2),
+  Total_Inactivos=sum(Inactivos,na.rm = TRUE),
+  Tasa_actividad=round(100*Total_Activos/(Total_Activos+Total_Inactivos),2))
+
+kable(TotalNac_EPA, caption = "Población mayor de 16 años según su relación con la Actividad. Total Nacional", format.args = list(decimal.mark = ",", big.mark = "."))
+
+
+
+```
+
+
+####Calculamos valores absolutos y relativos de empleo , paro e inactividad por CCAA
+
+
+```{r}
+
+TablaCCAA_EPA<-Valores%>%group_by(CCAA)%>%summarise(
+  Total_Ocupados=round(sum(Ocupados,na.rm = TRUE),1),
+  Total_Parados=round(sum(Parados,na.rm = TRUE),1),
+  Total_Activos=Total_Ocupados+Total_Parados,
+  Tasa_desempleo=round(100*(Total_Parados/Total_Activos),2),
+  Total_Inactivos=sum(Inactivos,na.rm = TRUE),
+  Tasa_actividad=round(100*Total_Activos/(Total_Activos+Total_Inactivos),2))
+
+kable(TablaCCAA_EPA, caption = "Población mayor de 16 años según su relación con la Actividad. Comunidades Autónomas", format.args = list(decimal.mark = ",", big.mark = "."))
+
+
+```
+
+
+####Unimos ambas tablas
+
+```{r}
+TablaNACIONAL_EPA<-TotalNac_EPA%>%mutate(CCAA="Conjunto Nacional")
+glimpse(TablaCCAA_EPA)
+
+TablaNACIONAL_EPA<-TablaNACIONAL_EPA%>%select(CCAA,Total_Ocupados,Total_Parados,Total_Activos,Tasa_desempleo,Total_Inactivos,Tasa_actividad)
+
+
+TablaCCAA_EPA<-rbind(TablaNACIONAL_EPA,TablaCCAA_EPA)
+
+
+kable(TablaCCAA_EPA, caption = "Población mayor de 16 años según su relación con la Actividad por Comunidades Autónomas y Conjunto Nacional", format.args = list(decimal.mark = ",", big.mark = "."))
+
+
+```
+
+####Calculamos valores absolutos y relativos de empleo , paro e inactividad por SEXO
+
+```{r}
+TablaSEXO_EPA<-Valores%>%group_by(SEXO)%>%summarise(
+  Total_Ocupados=round(sum(Ocupados,na.rm = TRUE),1),
+  Total_Parados=round(sum(Parados,na.rm = TRUE),1),
+  Total_Activos=Total_Ocupados+Total_Parados,
+  Tasa_desempleo=round(100*(Total_Parados/Total_Activos),2),
+  Total_Inactivos=sum(Inactivos,na.rm = TRUE),
+  Tasa_actividad=round(100*Total_Activos/(Total_Activos+Total_Inactivos),2))
+
+kable(TablaSEXO_EPA, caption = "Población mayor de 16 años según su relación con la Actividad. Distribución por sexos", format.args = list(decimal.mark = ",", big.mark = "."))
+
+```
+
+####Calculamos valores absolutos y relativos de empleo , paro e inactividad por GRUPOS DE EDAD
+```{r}
+
+TablaGRUPO_EDAD_EPA<-Valores%>%group_by(GRUPO_EDAD)%>%summarise(
+  Total_Ocupados=round(sum(Ocupados,na.rm = TRUE),1),
+  Total_Parados=round(sum(Parados,na.rm = TRUE),1),
+  Total_Activos=Total_Ocupados+Total_Parados,
+  Tasa_desempleo=round(100*(Total_Parados/Total_Activos),2),
+  Total_Inactivos=sum(Inactivos,na.rm = TRUE),
+  Tasa_actividad=round(100*Total_Activos/(Total_Activos+Total_Inactivos),2))
+
+kable(TablaGRUPO_EDAD_EPA, caption = "Población mayor de 16 años según su relación con la Actividad. Distribución por GRUPOS DE EDAD", format.args = list(decimal.mark = ",", big.mark = "."))
+```
+
+####Calculamos valores absolutos y relativos de empleo , paro e inactividad por NACIONALIDAD
+```{r}
+
+TablaNACIONALIDAD_EPA<-Valores%>%group_by(NACIONALIDAD)%>%summarise(
+  Total_Ocupados=round(sum(Ocupados,na.rm = TRUE),1),
+  Total_Parados=round(sum(Parados,na.rm = TRUE),1),
+  Total_Activos=Total_Ocupados+Total_Parados,
+  Tasa_desempleo=round(100*(Total_Parados/Total_Activos),2),
+  Total_Inactivos=sum(Inactivos,na.rm = TRUE),
+  Tasa_actividad=round(100*Total_Activos/(Total_Activos+Total_Inactivos),2))
+
+kable(TablaNACIONALIDAD_EPA, caption = "Población mayor de 16 años según su relación con la Actividad. Distribución por NACIONALIDAD", format.args = list(decimal.mark = ",", big.mark = "."))
+```
+
+
+####Calculamos valores absolutos y relativos de empleo , paro e inactividad por ESTUDIOS
+```{r}
+
+TablaESTUDIOS_EPA<-Valores%>%group_by(ESTUDIOS)%>%summarise(
+  Total_Ocupados=round(sum(Ocupados,na.rm = TRUE),1),
+  Total_Parados=round(sum(Parados,na.rm = TRUE),1),
+  Total_Activos=Total_Ocupados+Total_Parados,
+  Tasa_desempleo=round(100*(Total_Parados/Total_Activos),2),
+  Total_Inactivos=sum(Inactivos,na.rm = TRUE),
+  Tasa_actividad=round(100*Total_Activos/(Total_Activos+Total_Inactivos),2))
+
+kable(TablaESTUDIOS_EPA, caption = "Población mayor de 16 años según su relación con la Actividad. Distribución por NIVEL DE ESTUDIOS", format.args = list(decimal.mark = ",", big.mark = "."))
+```
+
+
+
+
+
+
+
+### Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE, include=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

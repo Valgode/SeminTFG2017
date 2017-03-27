@@ -22,7 +22,7 @@ Leemos el fichero con microdatos de la EPA del trimestre de 2017
 ```{r datos_3t16,echo=FALSE, warning=FALSE}
 
 library(readr)
-setwd("C:/Seminario_20170328/datos_4t16")
+setwd("C:/SeminTFG2017/datos_4t16")
 
 
 widths_epa<-c(3,2,2,5,1,2,2,1,1,2,2,2,1,1,2,3,1,3,2,

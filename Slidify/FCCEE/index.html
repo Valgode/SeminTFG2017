@@ -88,7 +88,7 @@ body {background:grey transparent;
 
 <slide class="class" id="id" style="background:;">
   <article data-timings="">
-    <p>El Sistema Estadístico  Estatal es el encargado de elaborar las estadísticas oficiales del Estado Español, así como de las estadísticas oficiales del Sistema Estadístico Europeo.  </p>
+    <p>El <strong>Sistema Estadístico  Estatal</strong> es el encargado de elaborar las <strong>estadísticas oficiales</strong> del Estado Español, así como de las estadísticas oficiales del Sistema Estadístico Europeo.  </p>
 
 <p><iframe width="400" height="225" frameborder="0"
   src="http://www.ine.es/explica/explica_estad_oficiales_ine_sen.htm" >
@@ -425,7 +425,7 @@ Potenciar el intercambio de experiencias metodológicas en materia estadística,
 
 <slide class="" id="slide-24" style="background:;">
   <hgroup>
-    <h2>Radio</h2>
+    <h2>Planificación Estadística</h2>
   </hgroup>
   <article data-timings="">
     
@@ -463,7 +463,7 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
 
 <slide class="" id="slide-25" style="background:;">
   <hgroup>
-    <h2>Radio (Dos columnas)</h2>
+    <h2>Correlación</h2>
   </hgroup>
   <article data-timings="">
     
@@ -499,7 +499,7 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
 
 <slide class="" id="slide-26" style="background:;">
   <hgroup>
-    <h2>Checkbox</h2>
+    <h2>Probabilidades</h2>
   </hgroup>
   <article data-timings="">
     
@@ -575,16 +575,12 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>3. El Instituto Nacional de Estadística (INE) (Cont..)</h2>
+    <h2>Las Estadísticas del INE</h2>
   </hgroup>
   <article data-timings="">
-    <p>Las Estadísticas del INE</p>
+    <p><a href="https://www.youtube.com/watch?v=_SO0kv3rk2o&amp;list=PLJulBV7cVXicGdSJoFKvjS0hWfSLycMmh">Las Estadísticas del INE</a>  </p>
 
-<p><a href="https://www.youtube.com/watch?v=_SO0kv3rk2o&amp;list=PLJulBV7cVXicGdSJoFKvjS0hWfSLycMmh">Cómo se realizan las Estadísticas</a></p>
-
-<p><a href="https://www.youtube.com/watch?v=qKs-mNOMBeE&amp;list=PLJulBV7cVXicGdSJoFKvjS0hWfSLycMmh">Índice de Precios de Consumo (IPC)</a></p>
-
-<p><a href="https://www.youtube.com/watch?v=W0LJSCOoyt4&amp;list=PLJulBV7cVXidU_cleHYJ9jNjfrByO9xqi">Muestras y marcos estadísticos</a> </p>
+<p><img src="INE.png" alt="width"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -592,33 +588,21 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>3. El Instituto Nacional de Estadística (INE) (Cont..)</h2>
+    <h2>La página web del INE (<a href="http://www.ine.es">www.ine.es</a>)</h2>
   </hgroup>
   <article data-timings="">
-    <h4>La página web del INE (<a href="http://www.ine.es">www.ine.es</a>)</h4>
-
-<p>Además, la Ley insta a los servicios estadísticos estatales a utilizar el mismo sistema normalizado de conceptos, definiciones, unidades estadísticas, clasificaciones, nomenclaturas y códigos, de manera que sea posible comparar, integrar y analizar la información primaria y los resultados finales.</p>
+    <iframe width="400" height="225" frameborder="0"
+  src="http://www.ine.es/" >
+</iframe>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
-  <article data-timings="">
-    
-<div class="quiz-text quiz-multitext well">
-  
-  <button class="quiz-submit btn btn-primary">Enviar</button>
-  <button class="quiz-toggle-hint btn btn-info">Mostrar Pista</button>
-  <button class="quiz-show-answer btn btn-success">Mostrar Respuesta</button>
-  <button class="quiz-clear btn btn-danger">Limpiar</button>
-  
-  </div>
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class" id="id" style="background:;">
+<slide class="segue" id="slide-32" style="background:grey;">
+  <hgroup>
+    <h1>4.Tratamiento de datos con R</h1>
+  </hgroup>
   <article data-timings="">
     
   </article>
@@ -626,16 +610,16 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
 </slide>
 
 <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Plan de Trabajo</h2>
+  </hgroup>
   <article data-timings="">
-    <ul>
-<li>Ejemplo:</li>
-</ul>
-
-<pre><code class="r">plot(cars)
-abline(lm(dist ~ speed, data = cars), col = &quot;red&quot;)
-</code></pre>
-
-<p><img src="figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" /></p>
+    <ol>
+<li><p>Descargaremos de <a href="http://www.ine.es">www.ine.es</a> el <strong>fichero de microdatos de la EPA del cuarto trimestre de 2016</strong> (Últimos datos disponibles),  </p></li>
+<li><p>Lo leeremos con el <strong>Programa R</strong>.</p></li>
+<li><p>Calcularemos los valores de las principales categorías poblacionales en relación con el mercado de trabajo (<strong>Ocupados, Parados, Activos e Inactivos</strong>) y las <strong>tasas asociadas</strong>, clasificadas según diversas variables sociodemográficas (<strong>Sexo, Edad, Formación,...</strong>).</p></li>
+<li><p>Con carácter previo, para tratar adecuadamente el fichero, estudiaremos la <strong>metodología de la EPA</strong>.</p></li>
+</ol>
 
   </article>
   <!-- Presenter Notes -->
@@ -643,20 +627,306 @@ abline(lm(dist ~ speed, data = cars), col = &quot;red&quot;)
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>7. La página web del INE (cont)</h2>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
   </hgroup>
   <article data-timings="">
-    <ul>
-<li>Here is a more complex example</li>
+    <p><strong>CARACTERÍSTICAS DE LA ENCUESTA</strong>  </p>
+
+<p><img src="EPA_caract.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>TIPO DE MUESTREO</strong>  </p>
+
+<ul>
+<li> <strong>Muestreo bietápico con estratificación en las unidades de la primera etapa</strong></li>
 </ul>
 
-<pre><code class="r">library(ggplot2)
-g &lt;- ggplot(cars, aes(speed, dist))
-g + geom_point() +
-    geom_smooth()
-</code></pre>
+<p><img src="EPA_muestreo.png" alt="width"></p>
 
-<p><img src="figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" /></p>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>PERMANENCIA EN LA MUESTRA</strong>  </p>
+
+<p><img src="EPA_Permanencia.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>ESTIMADORES DE RAZÓN</strong>  </p>
+
+<p><img src="EPA_EstRazon.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>REPONDERACIÓN O CALIBRADO DE LOS FACTORES DE ELEVACIÓN</strong>  </p>
+
+<p><img src="EPA_Reponderacion.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>REALIZACIÓN DE LAS ENTREVISTAS</strong>  </p>
+
+<p><img src="EPA_Entrevistas.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>ÁMBITO POBLACIONAL</strong>  </p>
+
+<p><img src="EPA_Ambito.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>PERÍODOS DE REFERENCIA</strong>  </p>
+
+<p><img src="EPA_PerRef.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>MARCO LEGISLATIVO INTERNACIONAL</strong>  </p>
+
+<p><img src="EPA_LegisUE.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>DEFINICIONES</strong></p>
+
+<ul>
+<li><p>Las definiciones de la EPA se basan en las <strong>recomendaciones aprobadas por la Organización Internacional del Trabajo</strong> (OIT).  </p></li>
+<li><p>Están referidas al <strong>concepto nacional</strong> (residentes en el terriotorio), de acuerdo con el Sistema Europeo de Cuentas Integradas (SEC).  </p></li>
+<li><p>Por tanto, no incluyen a aquellas personas que trabajando en España, rsiden en el extranjero, que formarían parte del <strong>concepto interior</strong>.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>POBLACIÓN ACTIVA</strong>  </p>
+
+<p><img src="EPA_ACTIVOS.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>OCUPADOS</strong>  </p>
+
+<p><img src="EPA_OCUPADOS1.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>OCUPADOS</strong>  </p>
+
+<p><img src="EPA_OCUPADOS2.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>SUBEMPLEO POR INSUFICIENCIA DE HORAS</strong>  </p>
+
+<p><img src="EPA_SUBEMPLEO1.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>SUBEMPLEO POR INSUFICIENCIA DE HORAS</strong>  </p>
+
+<p><img src="EPA_SUBEMPLEO2.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>SUBEMPLEO INADECUADO</strong>  </p>
+
+<p><img src="EPA_SUBEMPLEO3.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>PARADOS</strong>  </p>
+
+<p><img src="EPA_PARADOS.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>INACTIVOS</strong>  </p>
+
+<p><img src="EPA_INACTIVOS.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>TASAS</strong>  </p>
+
+<p><img src="EPA_TASAS.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>OTRAS TASAS</strong>  </p>
+
+<p><img src="EPA_TASASotras.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>CUESTIONARIO</strong>  </p>
+
+<p><img src="EPA_CUESTIONARIO.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>DIFUSIÓN DE RESULTADOS TRIMESTRALES</strong>  </p>
+
+<p><img src="EPA_DIFUSIONtr.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>La Encuesta de Población Activa (EPA)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>DIFUSIÓN DE RESULTADOS ANUALES</strong>  </p>
+
+<p><img src="EPA_DIFUSIONan.png" alt="width"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -806,19 +1076,19 @@ g + geom_point() +
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='Radio'>
+        data-slide=24 title='Planificación Estadística'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='Radio (Dos columnas)'>
+        data-slide=25 title='Correlación'>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Checkbox'>
+        data-slide=26 title='Probabilidades'>
          26
       </a>
     </li>
@@ -842,38 +1112,164 @@ g + geom_point() +
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='3. El Instituto Nacional de Estadística (INE) (Cont..)'>
+        data-slide=30 title='Las Estadísticas del INE'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='3. El Instituto Nacional de Estadística (INE) (Cont..)'>
+        data-slide=31 title='La página web del INE (<a href="http://www.ine.es">www.ine.es</a>)'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='NA'>
+        data-slide=32 title='4.Tratamiento de datos con R'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='NA'>
+        data-slide=33 title='Plan de Trabajo'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='NA'>
+        data-slide=34 title='La Encuesta de Población Activa (EPA)'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='7. La página web del INE (cont)'>
+        data-slide=35 title='La Encuesta de Población Activa (EPA)'>
          35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='La Encuesta de Población Activa (EPA)'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='La Encuesta de Población Activa (EPA)'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='La Encuesta de Población Activa (EPA)'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='La Encuesta de Población Activa (EPA)'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='La Encuesta de Población Activa (EPA)'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='La Encuesta de Población Activa (EPA)'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='La Encuesta de Población Activa (EPA)'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='La Encuesta de Población Activa (EPA)'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='La Encuesta de Población Activa (EPA)'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='La Encuesta de Población Activa (EPA)'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='La Encuesta de Población Activa (EPA)'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='La Encuesta de Población Activa (EPA)'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='La Encuesta de Población Activa (EPA)'>
+         48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='La Encuesta de Población Activa (EPA)'>
+         49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='La Encuesta de Población Activa (EPA)'>
+         50
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='La Encuesta de Población Activa (EPA)'>
+         51
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=52 title='La Encuesta de Población Activa (EPA)'>
+         52
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=53 title='La Encuesta de Población Activa (EPA)'>
+         53
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=54 title='La Encuesta de Población Activa (EPA)'>
+         54
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=55 title='La Encuesta de Población Activa (EPA)'>
+         55
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=56 title='La Encuesta de Población Activa (EPA)'>
+         56
       </a>
     </li>
   </ul>

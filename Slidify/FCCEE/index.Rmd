@@ -41,8 +41,7 @@ body {background:grey transparent;
 
 --- .class #id
 
-##  
-El Sistema Estadístico  Estatal es el encargado de elaborar las estadísticas oficiales del Estado Español, así como de las estadísticas oficiales del Sistema Estadístico Europeo.  
+  El **Sistema Estadístico  Estatal** es el encargado de elaborar las **estadísticas oficiales** del Estado Español, así como de las estadísticas oficiales del Sistema Estadístico Europeo.  
 
 
  <iframe width="400" height="225" frameborder="0"
@@ -289,7 +288,7 @@ Potenciar el intercambio de experiencias metodológicas en materia estadística,
 
 --- &radio
 
-## Radio
+## Planificación Estadística
 
 ¿Quién aprueba el Plan Estadístico Nacional (PEN)?
 
@@ -314,7 +313,7 @@ El Plan Estadístico Nacional es el principal instrumento ordenador de la activi
 
 --- &radio2
 
-## Radio (Dos columnas) 
+## Correlación 
 
 ¿Cuál de estos dos diagramas de dispersión tiene mayor correlación?
 
@@ -334,7 +333,7 @@ Ambos tienen la misma correlación.
 
 ---  &checkbox
 
-## Checkbox
+## Probabilidades
 
 Linda tiene 31 años de edad, soltera, inteligente y muy brillante. Se especializó en filosofía. Como estudiante, estaba profundamente preocupada por los problemas de discriminación y justicia social, participando también en manifestaciones anti-nucleares.
 
@@ -383,27 +382,269 @@ Piensa en las probabilidades de cada suceso y en las de ambos conjuntamente.
 
 --- .class #id
 
-## 3. El Instituto Nacional de Estadística (INE) (Cont..)
-Las Estadísticas del INE
+## Las Estadísticas del INE
 
-[Cómo se realizan las Estadísticas] (https://www.youtube.com/watch?v=_SO0kv3rk2o&list=PLJulBV7cVXicGdSJoFKvjS0hWfSLycMmh)
 
-[Índice de Precios de Consumo (IPC)] (https://www.youtube.com/watch?v=qKs-mNOMBeE&list=PLJulBV7cVXicGdSJoFKvjS0hWfSLycMmh)
+[Las Estadísticas del INE]
+(https://www.youtube.com/watch?v=_SO0kv3rk2o&list=PLJulBV7cVXicGdSJoFKvjS0hWfSLycMmh)  
 
-[Muestras y marcos estadísticos] (https://www.youtube.com/watch?v=W0LJSCOoyt4&list=PLJulBV7cVXidU_cleHYJ9jNjfrByO9xqi) 
+![width](INE.png)
 
 
 
 
 
 --- .class #id 
-## 3. El Instituto Nacional de Estadística (INE) (Cont..)
-####  La página web del INE (www.ine.es)
+
+##  La página web del INE (www.ine.es)
+
+<iframe width="400" height="225" frameborder="0"
+  src="http://www.ine.es/" >
+</iframe>
 
 
-Además, la Ley insta a los servicios estadísticos estatales a utilizar el mismo sistema normalizado de conceptos, definiciones, unidades estadísticas, clasificaciones, nomenclaturas y códigos, de manera que sea posible comparar, integrar y analizar la información primaria y los resultados finales.
 
----  &multitext
+--- .segue bg:grey
+
+# 4.Tratamiento de datos con R
+
+--- .class #id 
+
+
+## Plan de Trabajo
+
+1. Descargaremos de www.ine.es el **fichero de microdatos de la EPA del cuarto trimestre de 2016** (Últimos datos disponibles),  
+
+2. Lo leeremos con el **Programa R**.
+
+3. Calcularemos los valores de las principales categorías poblacionales en relación con el mercado de trabajo (**Ocupados, Parados, Activos e Inactivos**) y las **tasas asociadas**, clasificadas según diversas variables sociodemográficas (**Sexo, Edad, Formación,...**).
+
+4. Con carácter previo, para tratar adecuadamente el fichero, estudiaremos la **metodología de la EPA**.
+
+
+--- .class #id 
+
+
+
+## La Encuesta de Población Activa (EPA)
+
+
+  **CARACTERÍSTICAS DE LA ENCUESTA**  
+  
+![width](EPA_caract.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **TIPO DE MUESTREO**  
+  
++  **Muestreo bietápico con estratificación en las unidades de la primera etapa**
+
+  
+![width](EPA_muestreo.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **PERMANENCIA EN LA MUESTRA**  
+  
+![width](EPA_Permanencia.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **ESTIMADORES DE RAZÓN**  
+  
+![width](EPA_EstRazon.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **REPONDERACIÓN O CALIBRADO DE LOS FACTORES DE ELEVACIÓN**  
+  
+![width](EPA_Reponderacion.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **REALIZACIÓN DE LAS ENTREVISTAS**  
+  
+![width](EPA_Entrevistas.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **ÁMBITO POBLACIONAL**  
+  
+![width](EPA_Ambito.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **PERÍODOS DE REFERENCIA**  
+  
+![width](EPA_PerRef.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **MARCO LEGISLATIVO INTERNACIONAL**  
+  
+![width](EPA_LegisUE.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+**DEFINICIONES**
+
++ Las definiciones de la EPA se basan en las **recomendaciones aprobadas por la Organización Internacional del Trabajo** (OIT).  
+
++ Están referidas al **concepto nacional** (residentes en el terriotorio), de acuerdo con el Sistema Europeo de Cuentas Integradas (SEC).  
+
++ Por tanto, no incluyen a aquellas personas que trabajando en España, rsiden en el extranjero, que formarían parte del **concepto interior**.
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+  **POBLACIÓN ACTIVA**  
+  
+![width](EPA_ACTIVOS.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+  **OCUPADOS**  
+  
+![width](EPA_OCUPADOS1.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+  **OCUPADOS**  
+  
+![width](EPA_OCUPADOS2.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+  **SUBEMPLEO POR INSUFICIENCIA DE HORAS**  
+  
+![width](EPA_SUBEMPLEO1.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+  **SUBEMPLEO POR INSUFICIENCIA DE HORAS**  
+  
+![width](EPA_SUBEMPLEO2.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+  **SUBEMPLEO INADECUADO**  
+  
+![width](EPA_SUBEMPLEO3.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+  **PARADOS**  
+  
+![width](EPA_PARADOS.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **INACTIVOS**  
+  
+![width](EPA_INACTIVOS.png)
+
+--- .class #id 
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **TASAS**  
+  
+![width](EPA_TASAS.png)
+
+--- .class #id
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **OTRAS TASAS**  
+  
+![width](EPA_TASASotras.png)
+
+--- .class #id
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **CUESTIONARIO**  
+  
+![width](EPA_CUESTIONARIO.png)
+
+--- .class #id
+
+## La Encuesta de Población Activa (EPA)
+
+
+  **DIFUSIÓN DE RESULTADOS TRIMESTRALES**  
+  
+![width](EPA_DIFUSIONtr.png)
+
+--- .class #id
+
+## La Encuesta de Población Activa (EPA)
+
+
+
+  **DIFUSIÓN DE RESULTADOS ANUALES**  
+  
+![width](EPA_DIFUSIONan.png)
 
 
 
@@ -415,34 +656,4 @@ Además, la Ley insta a los servicios estadísticos estatales a utilizar el mism
  
 
 
-
---- .class #id
-
-
-
-
-
---- .class #id 
-
-
-- Ejemplo:
-
-```{r, fig.height = 4.5, fig.width = 8, fig.align = 'center', message=FALSE}
-plot(cars)
-abline(lm(dist ~ speed, data = cars), col = "red")
-```
-
-
---- .class #id 
-
-## 7. La página web del INE (cont)
-
-- Here is a more complex example
-
-```{r, fig.height = 4, fig.width = 10, fig.align = 'center', message=FALSE,warning= FALSE, cache=FALSE}
-library(ggplot2)
-g <- ggplot(cars, aes(speed, dist))
-g + geom_point() +
-	geom_smooth()
-```
 

@@ -601,7 +601,7 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
 
 <slide class="segue" id="slide-32" style="background:grey;">
   <hgroup>
-    <h1>4.Tratamiento de datos con R</h1>
+    <h1>La Encuesta de Población Activa</h1>
   </hgroup>
   <article data-timings="">
     
@@ -610,16 +610,8 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
 </slide>
 
 <slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Plan de Trabajo</h2>
-  </hgroup>
   <article data-timings="">
-    <ol>
-<li><p>Descargaremos de <a href="http://www.ine.es">www.ine.es</a> el <strong>fichero de microdatos de la EPA del cuarto trimestre de 2016</strong> (Últimos datos disponibles),  </p></li>
-<li><p>Lo leeremos con el <strong>Programa R</strong>.</p></li>
-<li><p>Calcularemos los valores de las principales categorías poblacionales en relación con el mercado de trabajo (<strong>Ocupados, Parados, Activos e Inactivos</strong>) y las <strong>tasas asociadas</strong>, clasificadas según diversas variables sociodemográficas (<strong>Sexo, Edad, Formación,...</strong>).</p></li>
-<li><p>Con carácter previo, para tratar adecuadamente el fichero, estudiaremos la <strong>metodología de la EPA</strong>.</p></li>
-</ol>
+    <p>Al final de la sesión haremos una práctica en R con un fichero de microdatos de la EPA. Por tal motivo, vamos a estudiar primero, de manera resumida, la <strong>metodología de la EPA</strong>.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -755,8 +747,8 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
 
 <ul>
 <li><p>Las definiciones de la EPA se basan en las <strong>recomendaciones aprobadas por la Organización Internacional del Trabajo</strong> (OIT).  </p></li>
-<li><p>Están referidas al <strong>concepto nacional</strong> (residentes en el terriotorio), de acuerdo con el Sistema Europeo de Cuentas Integradas (SEC).  </p></li>
-<li><p>Por tanto, no incluyen a aquellas personas que trabajando en España, rsiden en el extranjero, que formarían parte del <strong>concepto interior</strong>.</p></li>
+<li><p>Están referidas al <strong>concepto nacional</strong> (residentes en el territorio), de acuerdo con el Sistema Europeo de Cuentas Integradas (SEC).  </p></li>
+<li><p>Por tanto, no incluyen a aquellas personas que trabajando en España, residen en el extranjero, que formarían parte del <strong>concepto interior</strong>.</p></li>
 </ul>
 
   </article>
@@ -928,6 +920,126 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
 
 <p><img src="EPA_DIFUSIONan.png" alt="width"></p>
 
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-57" style="background:grey;">
+  <hgroup>
+    <h1>4.Tratamiento de datos con R</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Instalación de R y RStudio</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<ul>
+<li><p><strong>R</strong> es un lenguaje de programación orientado al análisis estadístico y la representación de datos.  (<a href="http://cran.es.r-project.org/">http://cran.es.r-project.org/</a>)  </p></li>
+<li><p><strong>RStudio</strong> es una GUI, <em>Graphical user interface</em>, para R  (RStudio <a href="http://rstudio.org/">http://rstudio.org/</a>)</p></li>
+<li><p><strong>R Markdown</strong> (<a href="http://rmarkdown.rstudio.com/">http://rmarkdown.rstudio.com/</a>). Es un formato de ficheros para hacer documentos dinámicos con R. Un documento R Markdown se escribe en lenguaje Markdown (lenguaje de marcado) y contiene  porciones de código R code.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Guit y GuitHub</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p><strong>Git</strong> (<a href="https://git-scm.com/">https://git-scm.com/</a>). Es un software de control de versiones diseñado por Linus Torvalds, creador de Linux.</p></li>
+<li><p><strong>Github</strong> (<a href="https://github.com/">https://github.com/</a>). Es una plataforma de desarrollo colaborativo) para alojar proyectos utilizando el sistema de control de versiones Git. El código se almacena de forma pública, aunque también se puede hacer de forma privada, creando una cuenta de pago.  </p>
+
+<p>Dentro de la plataforma y sin necesidad de registrarte, si buscas la cadena <strong><em>SeminTFG2017</em></strong> encontrarás el repositorio con todo el material empleado en esta sesión, que podrás descargarte a tu ordenador.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Recursos para aprender R y RStudio</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<ul>
+<li><p><em>Entorno de trabajo R. RStudio</em> (<a href="http://www.um.es/ae/FEIR/10/">http://www.um.es/ae/FEIR/10/</a>)</p></li>
+<li><p><strong>Coursera</strong> (<a href="https://www.coursera.org/">https://www.coursera.org/</a>). Plataforma de educación virtual desarrollada por la Universidad de Stanford. Especialmente recomendable para nuestro propósito, es la especialización en Data Science de la Universidad Johns Hopkins (Baltimore).</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Recursos para aprender R y RStudio</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<p><strong>Swirl</strong> (<a href="http://swirlstats.com/">http://swirlstats.com/</a>). Paquete de R que permite cargar en RStudio una gran variedad de cursos de autoaprendizaje. Se recomienda empezar por <strong>R Programming</strong>.</p>
+
+<p>Código de instalación:</p>
+
+<pre><code class="r">install.packages(&quot;swirl&quot;)
+
+library(swirl)
+install_course(&quot;R Programming&quot;)
+swirl()
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Ejemplos de trabajos realizados</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="https://github.com/svmiller/svm-r-markdown-templates">Plantillas Markdown</a>  </p>
+
+<p><a href="https://github.com/melmonk/Rmarkdown_workshop_2016">Un taller de Rmarkdown</a></p>
+
+<p><a href="https://github.com/ismayc/reedtemplates/tree/master/inst/rmarkdown/templates/reed_thesis/skeleton">Plantilla para un trabajo académico <strong>¿TFG?</strong></a></p>
+
+<p><a href="https://idus.us.es/xmlui/bitstream/handle/11441/43489/Barrera%20G%C3%B3mez%2C%20Francisco%20Jos%C3%A9%20TFG.pdf?sequence=1&amp;isAllowed=y">Ejemplo de TFG</a>  </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Plan de Trabajo</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Descargaremos de <a href="http://www.ine.es">www.ine.es</a> el <strong>fichero de microdatos de la EPA del cuarto trimestre de 2016</strong> (Últimos datos disponibles),  </p></li>
+<li><p>Lo leeremos con el <strong>Programa R</strong>.</p></li>
+<li><p>Calcularemos los valores de las principales categorías poblacionales en relación con el mercado de trabajo (<strong>Ocupados, Parados, Activos e Inactivos</strong>) y las <strong>tasas asociadas</strong>, clasificadas según diversas variables sociodemográficas (<strong>Sexo, Edad, Formación,...</strong>).</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <article data-timings="">
+    
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -1124,13 +1236,13 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='4.Tratamiento de datos con R'>
+        data-slide=32 title='La Encuesta de Población Activa'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Plan de Trabajo'>
+        data-slide=33 title='NA'>
          33
       </a>
     </li>
@@ -1270,6 +1382,54 @@ artículo  8 que El Plan Estadístico Nacional <code>será aprobado por Real Dec
       <a href="#" target="_self" rel='tooltip' 
         data-slide=56 title='La Encuesta de Población Activa (EPA)'>
          56
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=57 title='4.Tratamiento de datos con R'>
+         57
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=58 title='Instalación de R y RStudio'>
+         58
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=59 title='Guit y GuitHub'>
+         59
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=60 title='Recursos para aprender R y RStudio'>
+         60
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=61 title='Recursos para aprender R y RStudio'>
+         61
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=62 title='Ejemplos de trabajos realizados'>
+         62
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=63 title='Plan de Trabajo'>
+         63
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=64 title='NA'>
+         64
       </a>
     </li>
   </ul>

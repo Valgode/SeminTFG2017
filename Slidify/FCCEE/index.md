@@ -402,32 +402,18 @@ Piensa en las probabilidades de cada suceso y en las de ambos conjuntamente.
   src="http://www.ine.es/" >
 </iframe>
 
-
-
 --- .segue bg:grey
 
-# 4.Tratamiento de datos con R
+# La Encuesta de Población Activa
 
 --- .class #id 
 
 
-## Plan de Trabajo
-
-1. Descargaremos de www.ine.es el **fichero de microdatos de la EPA del cuarto trimestre de 2016** (Últimos datos disponibles),  
-
-2. Lo leeremos con el **Programa R**.
-
-3. Calcularemos los valores de las principales categorías poblacionales en relación con el mercado de trabajo (**Ocupados, Parados, Activos e Inactivos**) y las **tasas asociadas**, clasificadas según diversas variables sociodemográficas (**Sexo, Edad, Formación,...**).
-
-4. Con carácter previo, para tratar adecuadamente el fichero, estudiaremos la **metodología de la EPA**.
-
+Al final de la sesión haremos una práctica en R con un fichero de microdatos de la EPA. Por tal motivo, vamos a estudiar primero, de manera resumida, la **metodología de la EPA**.
 
 --- .class #id 
-
-
 
 ## La Encuesta de Población Activa (EPA)
-
 
   **CARACTERÍSTICAS DE LA ENCUESTA**  
   
@@ -524,9 +510,9 @@ Piensa en las probabilidades de cada suceso y en las de ambos conjuntamente.
 
 + Las definiciones de la EPA se basan en las **recomendaciones aprobadas por la Organización Internacional del Trabajo** (OIT).  
 
-+ Están referidas al **concepto nacional** (residentes en el terriotorio), de acuerdo con el Sistema Europeo de Cuentas Integradas (SEC).  
++ Están referidas al **concepto nacional** (residentes en el territorio), de acuerdo con el Sistema Europeo de Cuentas Integradas (SEC).  
 
-+ Por tanto, no incluyen a aquellas personas que trabajando en España, rsiden en el extranjero, que formarían parte del **concepto interior**.
++ Por tanto, no incluyen a aquellas personas que trabajando en España, residen en el extranjero, que formarían parte del **concepto interior**.
 
 --- .class #id 
 
@@ -646,10 +632,98 @@ Piensa en las probabilidades de cada suceso y en las de ambos conjuntamente.
   
 ![width](EPA_DIFUSIONan.png)
 
+--- .segue bg:grey
+
+
+# 4.Tratamiento de datos con R
+
+--- .class #id 
+
+## Instalación de R y RStudio
+
+<br>
+
++ **R** es un lenguaje de programación orientado al análisis estadístico y la representación de datos.  (http://cran.es.r-project.org/)  
+
++ **RStudio** es una GUI, *Graphical user interface*, para R  (RStudio http://rstudio.org/)
+
++ **R Markdown** (http://rmarkdown.rstudio.com/). Es un formato de ficheros para hacer documentos dinámicos con R. Un documento R Markdown se escribe en lenguaje Markdown (lenguaje de marcado) y contiene  porciones de código R code.
+
+--- .class #id 
+
+## Guit y GuitHub
 
 
 
 
++ **Git** (https://git-scm.com/). Es un software de control de versiones diseñado por Linus Torvalds, creador de Linux.
+
+
++ **Github** (https://github.com/). Es una plataforma de desarrollo colaborativo) para alojar proyectos utilizando el sistema de control de versiones Git. El código se almacena de forma pública, aunque también se puede hacer de forma privada, creando una cuenta de pago.  
+
+  Dentro de la plataforma y sin necesidad de registrarte, si buscas la cadena ***SeminTFG2017*** encontrarás el repositorio con todo el material empleado en esta sesión, que podrás descargarte a tu ordenador.
+
+
+--- .class #id 
+
+## Recursos para aprender R y RStudio
+
+<br>
+
++ *Entorno de trabajo R. RStudio* (http://www.um.es/ae/FEIR/10/)
+
+
++ **Coursera** (https://www.coursera.org/). Plataforma de educación virtual desarrollada por la Universidad de Stanford. Especialmente recomendable para nuestro propósito, es la especialización en Data Science de la Universidad Johns Hopkins (Baltimore).
+
+--- .class #id 
+
+## Recursos para aprender R y RStudio
+
+<br>
+
+
+**Swirl** (http://swirlstats.com/). Paquete de R que permite cargar en RStudio una gran variedad de cursos de autoaprendizaje. Se recomienda empezar por **R Programming**.
+
+Código de instalación:
+
+
+```r
+install.packages("swirl")
+
+library(swirl)
+install_course("R Programming")
+swirl()
+```
+
+
+
+--- .class #id 
+
+ 
+
+## Ejemplos de trabajos realizados
+
+  
+  [Plantillas Markdown](https://github.com/svmiller/svm-r-markdown-templates)  
+  
+  [Un taller de Rmarkdown](https://github.com/melmonk/Rmarkdown_workshop_2016)
+
+  [Plantilla para un trabajo académico **¿TFG?**](https://github.com/ismayc/reedtemplates/tree/master/inst/rmarkdown/templates/reed_thesis/skeleton)
+  
+  [Ejemplo de TFG](https://idus.us.es/xmlui/bitstream/handle/11441/43489/Barrera%20G%C3%B3mez%2C%20Francisco%20Jos%C3%A9%20TFG.pdf?sequence=1&isAllowed=y)  
+
+--- .class #id
+
+## Plan de Trabajo
+
+1. Descargaremos de www.ine.es el **fichero de microdatos de la EPA del cuarto trimestre de 2016** (Últimos datos disponibles),  
+
+2. Lo leeremos con el **Programa R**.
+
+3. Calcularemos los valores de las principales categorías poblacionales en relación con el mercado de trabajo (**Ocupados, Parados, Activos e Inactivos**) y las **tasas asociadas**, clasificadas según diversas variables sociodemográficas (**Sexo, Edad, Formación,...**).
+
+
+--- .class #id 
 
 
 
